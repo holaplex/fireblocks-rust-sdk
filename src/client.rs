@@ -28,7 +28,7 @@ pub struct FbArgs {
     #[arg(long, env)]
     pub fireblocks_api_key: String,
     #[arg(long, env)]
-    pub secret_path: String,
+    pub fireblocks_secret_path: String,
 }
 
 #[allow(missing_debug_implementations)]
@@ -49,12 +49,12 @@ impl Client {
         let FbArgs {
             fireblocks_endpoint,
             fireblocks_api_key,
-            secret_path,
+            fireblocks_secret_path,
         } = args;
 
         let http = HttpClient::new();
 
-        let encoding_key = Self::build_encoding_key(secret_path)?;
+        let encoding_key = Self::build_encoding_key(fireblocks_secret_path)?;
 
         let base_url =
             Url::parse(&fireblocks_endpoint).context("failed to parse fireblocks endpoint")?;
