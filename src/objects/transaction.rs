@@ -1,4 +1,4 @@
-use hub_core::serde_with::skip_serializing_none;
+use serde_with::skip_serializing_none;
 use serde::{Deserialize, Serialize};
 
 /// <https://docs.fireblocks.com/api/?javascript#create-a-new-transaction>
